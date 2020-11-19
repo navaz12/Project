@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="text-center">ADD PRODUCT</h1>
+            <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">category</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" name="category">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Description</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Choose your Image</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Image">
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
