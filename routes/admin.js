@@ -18,7 +18,6 @@ router.post('/add-product',(req,res)=>{
    
     productH.addProduct(req.body,(id)=> {
       let image=req.files.Image
-      console.log(id);
       image.mv('./public/product-images/'+id+'.jpg',(err,done)=>{
         if(!err){
           res.render("admin/add-product")
