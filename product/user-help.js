@@ -24,13 +24,18 @@ module.exports={
                 bcrypt.compare(userData.password,user.password).then((status)=>{
                    if(status){
                         console.log('Login success');
+                        response.user=user
+                        response.status=true
+                        resolve(response)
                    }else{
-                        console.log('login led');
+                        console.log('login failed');
+                        resolve({status:false})
                    }
                    
                 })
             }else{
                 console.log('login failed');
+                resolve({status:false})
             }
         })
     }

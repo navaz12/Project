@@ -6,9 +6,9 @@ const usersH=require('../product/user-help')
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-
+let user=req.session.user
   productH.getAllproducts().then((products)=>{
-    res.render('user-view/view-product',{products});
+    res.render('user-view/view-product',{products,user});
   })
   
 });
@@ -24,7 +24,15 @@ router.post('/Signup',(req,res)=>{
   })
 })
 router.post('/Login',(req,res)=>{
-    usersH.doLogin(req.body)
+    usersH.doLogin(req.body).then((response)=>{
+      if(response.status){
+        req.session.loogedIn=true
+        req.session.user=response.user
+        res.redirect('/')
+      }else{
+        res.redirect('/login')
+      }
+    })
 })
 
 
