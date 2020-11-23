@@ -23,6 +23,9 @@ router.post('/Signup',(req,res)=>{
     console.log(response);
   })
 })
+router.post('/Login',(req,res)=>{
+    usersH.doLogin(req.body)
+})
 
 
 module.exports = router;

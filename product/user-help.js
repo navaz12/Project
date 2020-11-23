@@ -14,5 +14,24 @@ module.exports={
         })
          
     })
+    },
+    doLogin:(userData)=>{
+        return new Promise(async(resolve,reject)=>{
+            let loginstatus=false
+            let response={}
+            let user=await db.get().collection(collections.USER_COLLECTION).findOne({email:userData.email})
+            if(user){
+                bcrypt.compare(userData.password,user.password).then((status)=>{
+                   if(status){
+                        console.log('Login success');
+                   }else{
+                        console.log('login led');
+                   }
+                   
+                })
+            }else{
+                console.log('login failed');
+            }
+        })
     }
 }
