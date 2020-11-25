@@ -45,7 +45,7 @@ router.get('/logout',(req,res)=>{
   res.redirect('/')
 })
 router.get('/cart',(req,res)=>{
-  res.render('/user-view/cart')
+  res.render('user-view/cart')
 })
 
 
