@@ -32,14 +32,16 @@ router.post('/add-product',(req,res)=>{
     });
     
 });
-router.get('/delet-product/:id',(req,res)=>{
+router.get('/delete-product:id',(req,res)=>{
     let proId=req.query.id
     console.log(proId);
     productH.deleteProduct(proId).then((response)=>{
-      res.redirect('/admin')
+      res.redirect('/')
     })
 });
-router.get('/edit-product/',(req,res)=>{
+router.get('/edit-product',async (req,res)=>{
+  let product=await productH.getProductDetailes(req.params.id)
+  console.log(product);
   res.render('admin/edit-product')
 });
 
